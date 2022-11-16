@@ -17,12 +17,6 @@ each gene on a newline.}
 Generate a heatmap containing all expression intensity level for the genes
 ids input
 }
-\examples{
-#Example 1:
-#This will show expression intensity level of all genes ids input in heatmap.
-drawHeatMap("tests/geneList.txt", "Embryogenesis")
-
-}
 \author{
 {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 }

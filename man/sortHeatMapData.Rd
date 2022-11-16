@@ -19,12 +19,6 @@ life cycle pattern
 \description{
 INTERNAL FUNCTION: Sort the data into embryogenesis data or life cycle data.
 }
-\examples{
-#Example 1:
-#This will generate dataset for the drawHeatMap function.
-
-
-}
 \author{
 {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 }

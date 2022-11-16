@@ -13,17 +13,11 @@
 #'
 #' @param stage choose from embryogenesis and life cycle
 #'
-#' @export expression.png
 #'
 #' @return NULL
 #'
 #' @export
-#'
-#' @examples
-#' #Example 1:
-#' #This will show expression intensity level of all genes ids input in heatmap.
-#' drawHeatMap("tests/geneList.txt", "Embryogenesis")
-#'
+
 #' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 #'
 #' @import plotly
@@ -47,10 +41,6 @@ drawExpression <- function(geneFile, stage) {
 #'
 #' @return Two dataframe with embryogenesis pattern and another with
 #' life cycle pattern
-#'
-#' @examples
-#' #Example 1:
-#' #This will generate dataset for the drawHeatMap function.
 #'
 #'
 #' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}

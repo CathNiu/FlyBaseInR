@@ -16,17 +16,6 @@ from SEQUENCETYPE}
 \description{
 Generate a text file containing all sequences for the genes ids input
 }
-\examples{
-#Example 1:
-#This will retrieve the sequence data, then export an txt file
-with the list of genes and their sequences
-An example input file is called geneList.txt in tests folder.
-
-> FlyBaseInR::getAllSequences(tests/geneList.txt, "exon")
-> Please check output file "exonSeqeunces"in in your current
- working directory.
-
-}
 \author{
 {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 }

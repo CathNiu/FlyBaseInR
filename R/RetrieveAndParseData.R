@@ -20,18 +20,7 @@ FLYBASEEXP <- "https://api.flybase.org/api/v1.0/expression/proteome/"
 #'
 #' @export
 #'
-#'
 #' @return NULL
-#'
-#' @examples
-#' #Example 1:
-#' #This will retrieve the sequence data, then export an txt file
-#' with the list of genes and their sequences
-#' An example input file is called geneList.txt in tests folder.
-#'
-#' > FlyBaseInR::getAllSequences(tests/geneList.txt, "exon")
-#' > Please check output file "exonSeqeunces"in in your current
-#'  working directory.
 #'
 #' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 
@@ -62,14 +51,7 @@ getAllSepuences <- function(geneFile, seqType) {
 #'
 #' @return NULL
 #'
-#' @examples
-#' #Example 1:
-#' #This will retrieve the expression data, then export an txt file
-#' with the list of genes and their expression
-#' An example input file is called geneList.txt in tests folder.
-#'
-#' > FlyBaseInR::getAllExpression("tests/geneList.txt")
-#' > Please check output file expression.txt in your current working directory.
+#' @importFrom utils write.table
 #'
 #' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 #'
@@ -137,7 +119,7 @@ getSequence <- function(seqType, flyID) {
 #' This function will take different status code of the request, and print
 #' corresponding warning messages to users
 #'
-#' @param status_code The status code the request returned
+#' @param status The status code the request returned
 #'
 #' @param flyID A FlyBase ID that FlyBase uses to identify gene
 #'
