@@ -7,7 +7,7 @@ Maintainer: Huilin Niu <huilin.niu@mail.utoronto.ca>
 Description: FlyBaseInR is an R package that provides an interface to 
     FlyBase API in R. It retrieve, analyze and analyze mRNA expression data 
     from RNA-seq and draw a summarization of localization data from FlyBase.
-License: MIT license
+License: MIT License + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 4.0)
