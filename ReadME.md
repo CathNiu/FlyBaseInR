@@ -1,10 +1,3 @@
----
-title: "FlyBaseInR"
-author: "Huilin Niu"
-date: "`r Sys.Date()`"
-output: md_document
----
-
 # FlyBaseInR
 
 The FlyBaseInR package is an R package that provides direct access to
@@ -15,11 +8,9 @@ compare proteomic expressions in developmental stages within the group.
 
 To download package:
 
-``` r
-install.packages("devtools")
-devtools::install_github("CathNiu/FlyBaseInR", build_vignettes = TRUE)
-library("FlyBaseInR")
-```
+    install.packages("devtools")
+    devtools::install_github("CathNiu/FlyBaseInR", build_vignettes = TRUE)
+    library("FlyBaseInR")
 
 # Overview
 
@@ -30,15 +21,11 @@ is drawExpression().
 
 To see further documentation:
 
-``` r
-ls("package:FlyBaseInR")
-```
+    ls("package:FlyBaseInR")
 
 For more information on the package, call:
 
-``` r
-browseVignettes("FlyBaseInR")
-```
+    browseVignettes("FlyBaseInR")
 
 # Contributions
 
