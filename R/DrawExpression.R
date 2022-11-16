@@ -13,9 +13,11 @@
 #'
 #' @param stage choose from embryogenesis and life cycle
 #'
-#' @export expression.png an image file of the heatmap generated in this figure.
+#' @export expression.png
 #'
 #' @return NULL
+#'
+#' @export
 #'
 #' @examples
 #' #Example 1:
@@ -26,7 +28,7 @@
 #'
 #' @import plotly
 
-drawHeatMap <- function(geneFile, stage) {
+drawExpression <- function(geneFile, stage) {
   expressionData <- sortHeatMapData(geneFile, stage)
   intensity <- as.matrix(expressionData)
   figure <- plotly::plot_ly(
@@ -41,7 +43,7 @@ drawHeatMap <- function(geneFile, stage) {
 #' @param geneFile the list of genes for sequence retrieval as a txt file,
 #'                       each gene on a newline.
 #'
-#'@param stage Stage specifying which part of the list is used for extraction
+#' @param stage Stage specifying which part of the list is used for extraction
 #'
 #' @return Two dataframe with embryogenesis pattern and another with
 #' life cycle pattern
@@ -52,7 +54,6 @@ drawHeatMap <- function(geneFile, stage) {
 #'
 #'
 #' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
-#'
 #'
 sortHeatMapData <- function(geneFile, stage) {
   geneList <- parseFile(geneFile)

@@ -18,8 +18,8 @@ FLYBASEEXP <- "https://api.flybase.org/api/v1.0/expression/proteome/"
 #' @param seqType the tyoe if sequence you want to retrieve, any one choice
 #'                from SEQUENCETYPE
 #'
-#' @export Sequences.txt text file consists of all requested sequences. The
-#' type of seqeunce will be added in front of the Sequences.txt file.
+#' @export
+#'
 #'
 #' @return NULL
 #'
@@ -48,8 +48,7 @@ getAllSepuences <- function(geneFile, seqType) {
       cat(retrieved, file = outputFile, append = TRUE, sep = "\n")
     }
   }
-  finishMessage <- paste("Please check output file", outputFile,
-                         "in your current working directory", sep = " ")
+
   printFinish(outputFile)
   return(invisible(NULL))
 }
@@ -59,8 +58,7 @@ getAllSepuences <- function(geneFile, seqType) {
 #' @param geneFile the list of genes for sequence retrieval as a txt file,
 #'                       each gene on a newline.
 #'
-#' @export Expression.txt text file consists of expressions of all requested
-#' sequences.
+#' @export
 #'
 #' @return NULL
 #'
@@ -74,6 +72,7 @@ getAllSepuences <- function(geneFile, seqType) {
 #' > Please check output file expression.txt in your current working directory.
 #'
 #' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
+#'
 
 getAllExpression <- function(geneFile) {
   geneList <- parseFile(geneFile)
@@ -101,6 +100,7 @@ getAllExpression <- function(geneFile) {
 #' @param flyID A FlyBase ID that FlyBase uses to identify gene
 #'
 #' @return A list of sequences that belong to the flyID and the sequence type
+#'
 #'
 #' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 #'
@@ -145,27 +145,25 @@ getSequence <- function(seqType, flyID) {
 #'
 #' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 #'
-#' @import
 #'
 #'
-printWarning <- function(status_code, flyID) {
+printWarning <- function(status, flyID) {
   msg1 <- "cannot be retrieved,"
-  if (status_code == 200) {
-    error_message <- paste(flyID, msg1 ,
+  if (status == 200) {
+    errorMessage <- paste(flyID, msg1 ,
                            "you have entered an invalid sequence type.",
                            "Please consult vingette for the proper usage.",
                            sep = " ")
 
 
   } else if (status_code == 501) {
-    error_message <- paste(flyID, msg1 ,
+    errorMessage <- paste(flyID, msg1 ,
                            "a server error has occured. Please try later.",
                            sep = " ")
   }
-  print(error_message)
+  print(errorMessage)
   return(invisible(NULL))
 }
-
 
 
 #' INTERNAL FUNCTION: Get expression data from proteomic label-free
@@ -272,7 +270,6 @@ getExpressiondf <- function(geneList) {
 #'
 #' @author {Huilin Niu, \email{ huilin.niu@mail.utoronto.ca}}
 #'
-#' @import
 #'
 parseFile <- function(geneFile) {
   geneList <- scan(geneFile, what = character(), sep="\n")
@@ -285,10 +282,7 @@ parseFile <- function(geneFile) {
 #'
 #' @return NULL
 #'
-#'
 #' @author {Huilin Niu, \email{ huilin.niu@mail.utoronto.ca}}
-#'
-#' @import
 #'
 printFinish <- function(outputFileName) {
   finishMessage <- paste("Please check output file", outputFileName,
