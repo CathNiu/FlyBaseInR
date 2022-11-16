@@ -1,5 +1,5 @@
 ---
-title: "FlyBaseInR"
+title: "Introduction_FlyBaseInR"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Introduction_FlyBaseInR}

@@ -13,16 +13,6 @@ each gene on a newline.}
 \description{
 Generate a text file containing all sequences for the genes ids input
 }
-\examples{
-#Example 1:
-#This will retrieve the expression data, then export an txt file
-with the list of genes and their expression
-An example input file is called geneList.txt in tests folder.
-
-> FlyBaseInR::getAllExpression("tests/geneList.txt")
-> Please check output file expression.txt in your current working directory.
-
-}
 \author{
 {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 }

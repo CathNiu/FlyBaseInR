@@ -7,9 +7,9 @@
 printWarning(status, flyID)
 }
 \arguments{
-\item{flyID}{A FlyBase ID that FlyBase uses to identify gene}
+\item{status}{The status code the request returned}
 
-\item{status_code}{The status code the request returned}
+\item{flyID}{A FlyBase ID that FlyBase uses to identify gene}
 }
 \description{
 This function will take different status code of the request, and print
