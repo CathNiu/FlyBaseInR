@@ -5,42 +5,8 @@
 # Version: 0.1.0
 # Bugs and Issues:
 
-FLYBASESEQ <- "https://api.flybase.org/api/v1.0/sequence/id/"
-SEQUENCETYPE <- c("FBgn", "FBtr", "FBpp", "FBcl", "FBsf", "FBti", "FBtp",
-                  "exon", "intron", "five_prime_utr", "three_prime_utr", "CDS")
 FLYBASEEXP <- "https://api.flybase.org/api/v1.0/expression/proteome/"
 
-#' Generate a text file containing all sequences for the genes ids input
-#'
-#' @param geneFile the list of genes for sequence retrieval as a txt file,
-#'                       each gene on a newline.
-#'
-#' @param seqType the tyoe if sequence you want to retrieve, any one choice
-#'                from SEQUENCETYPE
-#'
-#' @export
-#'
-#' @return NULL
-#'
-#' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
-
-getAllSepuences <- function(geneFile, seqType) {
-  geneList <- parseFile(geneFile)
-  outputFile <- paste0(seqType, "Sequences.txt")
-  file.create(outputFile)
-  # Loop through all genes, retrieve gene sequences, write to text file
-  for (i in seq(along = geneList)) {
-    retrieved <- getSequence(seqType, geneList[i])
-    if (!is.null(retrieved)) {
-      geneName <- paste0(">", geneList[i])
-      cat(geneName, file = outputFile, append = TRUE, sep = "\n")
-      cat(retrieved, file = outputFile, append = TRUE, sep = "\n")
-    }
-  }
-
-  printFinish(outputFile)
-  return(invisible(NULL))
-}
 
 #' Generate a text file containing all sequences for the genes ids input
 #'
@@ -69,50 +35,7 @@ getAllExpression <- function(geneFile) {
 }
 
 
-#' INTERNAL FUNCTION: Get seqeunce from FlyBase using given feature and flyID
-#'
-#' This function Will use FlyBase internal API function to retrieve feature
-#' using specified FlyBase gene ID.
-#'
-#' @param seqType The type of sequence which we want to retrieve from FlyBase,
-#' including nuceotide sequence, mRNA sequences, and amino acid sequences.The
-#' available subtypes include :  FBgn, FBtr, FBpp, FBcl, FBsf, FBti, FBtp, exon,
-#' intron, five_prime_utr, three_prime_utr, CDS
-#'
-#' @param flyID A FlyBase ID that FlyBase uses to identify gene
-#'
-#' @return A list of sequences that belong to the flyID and the sequence type
-#'
-#'
-#' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
-#'
-#' @import httr
-#'
-getSequence <- function(seqType, flyID) {
 
-  # Get response from FlyBase server
-  response <- httr::GET(paste0(FLYBASESEQ, flyID, "/", seqType, sep = ""))
-
-  # Check if status_code is 200 or if the content is NULL
-  # The null content is usually caused by an invalid seqType entry, the FlyBase
-  # does not check for this error.
-  v <- NULL
-  if (status_code(response) == 200 && (!is.null(content(response)))) {
-    formattdResponse <- httr::content(response, as = "parsed")
-
-    # Retrieve all seq
-    numSeq <- formattdResponse$resultset$num_fetched
-    v <- character(numSeq)
-    for (i in seq(to = numSeq)) {
-      v[i] <- formattdResponse$resultset$result[[i]]$sequence
-    }
-  } else {
-    # If the request is not successful, print warning message to users.
-    responseStatus <- status_code(response)
-    printWarning(responseStatus, flyID)
-  }
-  return(v)
-}
 
 #' INTERNAL FUNCTION: Request response warnings
 #'
@@ -138,7 +61,7 @@ printWarning <- function(status, flyID) {
                            sep = " ")
 
 
-  } else if (status_code == 501) {
+  } else if (status == 501) {
     errorMessage <- paste(flyID, msg1 ,
                            "a server error has occured. Please try later.",
                            sep = " ")
@@ -162,7 +85,7 @@ printWarning <- function(status, flyID) {
 #'
 #' @author {Huilin Niu, \email{ huilin.niu@mail.utoronto.ca}}
 #'
-#' @import httr
+#' @importFrom httr GET
 #'
 getExpression <- function(flyID) {
 
@@ -240,37 +163,5 @@ getExpressiondf <- function(geneList) {
 }
 
 
-#' INTERNAL FUNCTION: read a text file and return in a list.
-#'
-#' This function Will use FlyBase internal API function to retrieve feature
-#' using specified FlyBase gene ID.
-#'
-#' @param geneFile a text file with genes seperated by new line, the input
-#'                 should be the file path.
-#'
-#' @return A list of genes
-#'
-#' @author {Huilin Niu, \email{ huilin.niu@mail.utoronto.ca}}
-#'
-#'
-parseFile <- function(geneFile) {
-  geneList <- scan(geneFile, what = character(), sep="\n")
-  return(geneList)
-}
-
-#' INTERNAL FUNCTION: Print finish message for users
-#'
-#' @param outputFileName the name of the finihsed output file
-#'
-#' @return NULL
-#'
-#' @author {Huilin Niu, \email{ huilin.niu@mail.utoronto.ca}}
-#'
-printFinish <- function(outputFileName) {
-  finishMessage <- paste("Please check output file", outputFileName,
-                         "in your current working directory", sep = " ")
-  print(finishMessage)
-  return(invisible(NULL))
-}
 
 # [END]

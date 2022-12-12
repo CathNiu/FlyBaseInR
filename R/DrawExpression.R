@@ -20,7 +20,7 @@
 
 #' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 #'
-#' @import plotly
+#' @importFrom plotly plot_ly
 
 drawExpression <- function(geneFile, stage) {
   expressionData <- sortHeatMapData(geneFile, stage)
@@ -59,3 +59,5 @@ sortHeatMapData <- function(geneFile, stage) {
   }
   return(expressiondf)
 }
+
+# [END]

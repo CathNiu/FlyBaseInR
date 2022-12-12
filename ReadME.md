@@ -1,64 +1,55 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
 # FlyBaseInR
 
-The FlyBaseInR package is an R package that provides direct access to
-FlyBase API. Users can extract sequences using a FlyBaseID Gene List and
-compare proteomic expressions in developmental stages within the group.
+<!-- badges: start -->
+<!-- badges: end -->
 
-# Installation
+The goal of FlyBaseInR is to …
 
-To download package:
+## Installation
 
-    install.packages("devtools")
-    devtools::install_github("CathNiu/FlyBaseInR", build_vignettes = TRUE)
-    library("FlyBaseInR")
+You can install the development version of FlyBaseInR from
+[GitHub](https://github.com/) with:
 
-# Overview
+``` r
+# install.packages("devtools")
+devtools::install_github("CathNiu/FlyBaseInR")
+```
 
-The FlyBaseInR package provides three functions. The getAllSequences()
-and getAllExpression output text files or dataframe(for expression) and
-could be used later for customized analysis. The main drawing function
-is drawExpression().
+## Example
 
-To see further documentation:
+This is a basic example which shows you how to solve a common problem:
 
-    ls("package:FlyBaseInR")
+``` r
+library(FlyBaseInR)
+## basic example code
+```
 
-For more information on the package, call:
+What is special about using `README.Rmd` instead of just `README.md`?
+You can include R chunks like so:
 
-    browseVignettes("FlyBaseInR")
+``` r
+summary(cars)
+#>      speed           dist       
+#>  Min.   : 4.0   Min.   :  2.00  
+#>  1st Qu.:12.0   1st Qu.: 26.00  
+#>  Median :15.0   Median : 36.00  
+#>  Mean   :15.4   Mean   : 42.98  
+#>  3rd Qu.:19.0   3rd Qu.: 56.00  
+#>  Max.   :25.0   Max.   :120.00
+```
 
-# Contributions
+You’ll still need to render `README.Rmd` regularly, to keep `README.md`
+up-to-date. `devtools::build_readme()` is handy for this. You could also
+use GitHub Actions to re-render `README.Rmd` every time you push. An
+example workflow can be found here:
+<https://github.com/r-lib/actions/tree/v1/examples>.
 
-The author of the package is Huilin Niu. The api retrieval functions
-make use of the `httr` R packages for data retrieval and json parsing.
-The plot drawing functions make use of the `plotly` R package in order
-to draw and label the plot. Secondary inclusions are the `bind_cols` and
-`bind_rows` function from `dyplr` package.
+You can also embed plots, for example:
 
-# References
+<img src="man/figures/README-pressure-1.png" width="100%" />
 
-Park T. Bootswatch. (2020). GitHub Repository.
-<https://github.com/thomaspark/bootswatch>
-
-Plotly R Open Source Graphing Library. Plotly. Website.
-<https://plotly.com/r/>
-
-R Core Team (2017). R: A language and environment for statistical
-computing. R Foundation for Statistical Computing, Vienna, Austria.
-Website. <https://www.R-project.org/>.
-
-Gramates LS, Agapite J, Attrill H, Calvi BR, Crosby M, dos Santos G
-Goodman JL, Goutte-Gattat D, Jenkins V, Kaufman T, Larkin A, Matthews B,
-Millburn G, Strelets VB, and the FlyBase Consortium (2022) FlyBase: a
-guided tour of highlighted features. Genetics, Volume 220, Issue 4,
-April 2022, iyac035. <https://flybase.org/>
-
-Wickham, H. and Bryan, J. (2019). R Packages (2nd edition). Newton,
-Massachusetts: O’Reilly Media. <https://r-pkgs.org/>
-
-# Acknowledgements
-
-This package was developed as part of an assessment for 2022BCB410H:
-Applied Bioinformatics, University of Toronto, Toronto, CANADA.
-
-For further information see the vignettes.
+In that case, don’t forget to commit and push the resulting figure
+files, so they display on GitHub and CRAN.
