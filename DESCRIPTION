@@ -1,25 +1,26 @@
 Package: FlyBaseInR
 Type: Package
-Title: A R package that retrieve, analyze and draw data from FlyBase API
+Title: An R package that retrieve, analyze and draw data from FlyBase API
 Version: 0.1.0
-Author: Huilin Niu
+Authors@R: person("Huilin", "Niu", 
+                  email = "huilin.niu@mail.utoronto.ca", 
+                  role = c("aut", "cre"),
+                  comment = c(ORCID = "0000-0002-4198-8014"))
 Maintainer: Huilin Niu <huilin.niu@mail.utoronto.ca>
 Description: FlyBaseInR is an R package that provides an interface to 
     FlyBase API in R. It retrieve, analyze and analyze mRNA expression data 
     from RNA-seq and draw a summarization of localization data from FlyBase.
-License: MIT License + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 4.0)
-Imports:
-    httr,
-    plotly,
-    dplyr
+Depends: R (>= 4.2.0)
+biocViews:
+Remotes: 
+License: MIT + file LICENSE
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
 Suggests: 
-    knitr,
-    rmarkdown,
-    testthat
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
 URL: https://github.com/CathNiu/FlyBaseInR
+BugReports: https://github.com/CathNiu/FlyBaseInR/issues
+Config/testthat/edition: 3

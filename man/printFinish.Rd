@@ -7,7 +7,7 @@
 printFinish(outputFileName)
 }
 \arguments{
-\item{outputFileName}{the name of the finihsed output file}
+\item{outputFileName}{the name of the finished output file}
 }
 \description{
 INTERNAL FUNCTION: Print finish message for users

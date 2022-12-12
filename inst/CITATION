@@ -1,0 +1,15 @@
+citHeader("To cite FlyBaseInR in publications use:")
+
+citEntry(
+  entry    = "Unpublished",
+  title    = "FlyBaseInR: An R package that retrieve, analyze and draw data
+              from FlyBase API.",
+  author   = "Huilin Niu",
+  note     = "Unpublished",
+  year     = "2022",
+
+  textVersion = paste("Niu, H. (2022) FlyBaseInR: An R package that retrieve,
+  analyze and draw data from FlyBase API. Unpublished.
+  URL: https://github.com/CathNiu/FlyBaseInR. ")
+
+)
