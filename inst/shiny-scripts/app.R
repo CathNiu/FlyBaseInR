@@ -70,7 +70,6 @@ ui <- fluidPage(
 server <- function(input, output) {
 
   # Process user input file, check if it is valid
-  shinyjs::hide("downloadExpression")
   geneInput <- NULL
   inputExpressionData <- NULL
 
