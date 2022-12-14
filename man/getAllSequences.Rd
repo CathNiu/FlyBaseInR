@@ -8,17 +8,19 @@ input.}
 getAllSequences(geneList, seqType)
 }
 \arguments{
+\item{geneList}{the list of genes for sequence retrieval.}
+
 \item{seqType}{the type if sequence you want to retrieve, any one choice
 from SEQUENCETYPE}
-
-\item{geenList}{the list of genes for sequence retrieval.}
 }
 \description{
 Generate a text file containing all sequences for the FlyBase ids from user
 input.
 }
 \examples{
+\dontrun{
 getAllSequences(geneList = geneListExample, seqType = "FBpp")
+}
 
 }
 \author{

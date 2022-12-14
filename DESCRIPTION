@@ -17,10 +17,19 @@ biocViews:
 Remotes: 
 License: MIT + file LICENSE
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
 VignetteBuilder: knitr
 URL: https://github.com/CathNiu/FlyBaseInR
 BugReports: https://github.com/CathNiu/FlyBaseInR/issues
 Config/testthat/edition: 3
+Imports: 
+    dplyr,
+    httr,
+    plotly,
+    shiny,
+    stats,
+    utils
