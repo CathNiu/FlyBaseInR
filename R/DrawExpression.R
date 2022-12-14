@@ -24,7 +24,7 @@
 #' @param expressionData the list of expressionData retrieved from FlyBase API
 #' using getAllExpression() function.
 #'
-#' @param typeData The type of expression data the heat map contains. User can
+#' @param typeGraph The type of expression data the heat map contains. User can
 #' choose from "Embryogenesis" or "LifeCycle".
 #'
 #' @param graphTitle A string used as the title of the heatmap generated
@@ -37,14 +37,14 @@
 #'
 #' # For generating a heatmap for gene expression specific to embryogenesis.
 #' drawExpression(expressionData = expressionData,
-#'                typeData = "Embryogenesis",
+#'                typeGraph = "Embryogenesis",
 #'                graphTitle = "Embryogenesis Gene Expression")
 #'
 #' # For generating a heatmap for gene expression specific to life cycle,
 #' # including 4 embryo stages, 4 larva stages, 1 prepupal stage, 4 pupal
 #' # stages, and 2 adult stages each for male and female flies.
 #' drawExpression(expressionData = expressionData,
-#'                typeData = "LifeCycle",
+#'                typeGraph = "LifeCycle",
 #'                graphTitle = "Life Cycle Gene Expression")
 #' }
 #'
@@ -54,16 +54,16 @@
 #'
 #' @importFrom plotly plot_ly layout
 
-drawExpression <- function(expressionData, typeData, graphTitle) {
+drawExpression <- function(expressionData, typeGraph, graphTitle) {
 
-  if (typeData != "Embryogenesis" && typeData != "LifeCycle" ) {
+  if (typeGraph != "Embryogenesis" && typeGraph != "LifeCycle" ) {
 
-    # Check user input typeData is valid
-    stop("Please enter Embryogenesis or LifeCycle for typeData argument")
+    # Check user input typegraph is valid
+    stop("Please enter Embryogenesis or LifeCycle for typeGraph argument")
 
   } else {
 
-    extractedData <- sortHeatMapData(expressionData, typeData)
+    extractedData <- sortHeatMapData(expressionData, typeGraph)
     # normalize gene expression data using log2
     normExtractedData <- log2(extractedData[colnames(extractedData) != "FlyBase ID"])
     intensity <- as.matrix(normExtractedData)
@@ -83,7 +83,7 @@ drawExpression <- function(expressionData, typeData, graphTitle) {
                           autosize = TRUE,
                           margin = plotMargin
                           )
-    if (typeData == "Embryogenesis") {
+    if (typeGraph == "Embryogenesis") {
       figure <- figure %>% plotly::layout(
         xaxis = list(title = "Embryogenesis(hour)"))
     } else {

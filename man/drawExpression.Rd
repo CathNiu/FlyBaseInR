@@ -18,13 +18,13 @@ Adult young female(Ayf), Adult young male(Aym), Adult female(Af), and
 Adult male(Am). The user can choose which heatmap to draw by changing the
 type parameter("Embryogenesis" or "LifeCycle").}
 \usage{
-drawExpression(expressionData, typeData, graphTitle)
+drawExpression(expressionData, typeGraph, graphTitle)
 }
 \arguments{
 \item{expressionData}{the list of expressionData retrieved from FlyBase API
 using getAllExpression() function.}
 
-\item{typeData}{The type of expression data the heat map contains. User can
+\item{typeGraph}{The type of expression data the heat map contains. User can
 choose from "Embryogenesis" or "LifeCycle".}
 
 \item{graphTitle}{A string used as the title of the heatmap generated}
@@ -52,14 +52,14 @@ expressionData <- getAllExpression(geneList = geneListExample)
 
 # For generating a heatmap for gene expression specific to embryogenesis.
 drawExpression(expressionData = expressionData,
-               typeData = "Embryogenesis",
+               typeGraph = "Embryogenesis",
                graphTitle = "Embryogenesis Gene Expression")
 
 # For generating a heatmap for gene expression specific to life cycle,
 # including 4 embryo stages, 4 larva stages, 1 prepupal stage, 4 pupal
 # stages, and 2 adult stages each for male and female flies.
 drawExpression(expressionData = expressionData,
-               typeData = "LifeCycle",
+               typeGraph = "LifeCycle",
                graphTitle = "Life Cycle Gene Expression")
 }
 
