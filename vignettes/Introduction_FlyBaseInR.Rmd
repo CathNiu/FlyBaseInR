@@ -1,0 +1,98 @@
+---
+title: "Introduction_FlyBaseInR"
+author: "Huilin Niu"
+date: "`r format(Sys.time(), '%d %b %Y')`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    number_sections: false
+vignette: >
+  %\VignetteIndexEntry{A tour of TestingPackage}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+opts_chunk$set(fig.align = "center", 
+               out.width = "90%",
+               fig.width = 6, fig.height = 5.5,
+               dev.args=list(pointsize=10),
+               par = TRUE, # needed for setting hook 
+               collapse = TRUE, # collapse input & ouput code in chunks
+               warning = FALSE)
+knit_hooks$set(par = function(before, options, envir)
+  { if(before && options$fig.show != "none") 
+       par(family = "sans", mar=c(4.1,4.1,1.1,1.1), mgp=c(3,1,0), tcl=-0.5)
+})
+set.seed(1) # for exact reproducibility
+```
+
+# Overview
+
+`FlyBaseInR` is an R package developed to retract genes sequences, and
+compare gene expression across developmental stages in FlyBase API. This
+includes the main components: DESCRIPTION, NAMESPACE, man subdirectory
+and R subdirectory. Additionally, licence, README and subdirectories
+vignettes, tests, data and inst are also explored. The package is
+targeted for BCB410H students exploring development of an R package in
+bioinformatics. **This document gives a tour of TestingPackage (version
+0.1.0)**. It was written in R Markdown, using the
+[knitr](https://cran.r-project.org/package=knitr) package for
+production. See `help(package = "TestingPackage")` for further details.
+
+To download **TestingPackage**, use the following commands: This package
+provides the user the means to retract genes sequences, and compare gene
+expression across developmental stages in FlyBase API. There are three
+functions exported, the users will mainly use getAllSequences(),
+getAllExpression() for information extraction, and drawExpression() for
+expression comparison.
+
+# Plotly Graph
+
+The plotly graph allows the user to compare expression level of genes
+across different genes visually.
+
+# Draw Expression
+
+The simplest usage of the `drawExpression()` function is to provide it a
+text file containing gene ids of FlyBase ID, and select expression
+stages from Embryogenesis and Life Cycle to draw.
+
+This code can then be used as shown below. For this example, we will use
+geneList.txt in tests folder.
+
+``` r
+FlyBaseInR::drawExpression("tests/geneList.txt", "Embryogenesis")
+```
+
+This function will then search the FlyBase database, retrieve json data
+format, parse the data, make a dataframe of all expression levels LFQ
+from all developmental stages, as specified in the API, and then draw
+embryogenesis expression in a format of heatmap.
+
+The output to this function should look something like this
+
+This code shown below is the function for sequence retrieval. You can
+enter the following sequence types in SEQUENCETYPE as stirng.
+
+``` r
+SEQUENCETYPE <- c("FBgn", "FBtr", "FBpp", "FBcl", "FBsf", "FBti", "FBtp",
+                  "exon", "intron", "five_prime_utr", "three_prime_utr", "CDS")
+FlyBaseInR::getAllSepuences("tests/geneList.txt", "FBpp")
+```
+
+This function will output a text file "FBppSequences.txt". in working
+directory.
+
+This code shown below is the function for expression level retrieval
+
+``` r
+FlyBaseInR::getAllExpression("tests/geneList.txt")
+```
+
+This function will output a text file "Expression.txt". in working
+directory.
