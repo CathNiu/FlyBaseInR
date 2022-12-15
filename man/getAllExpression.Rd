@@ -27,6 +27,11 @@ getAllExpression(geneListExample)
 }
 
 }
+\references{
+R Core Team (2022). R: A language and environment for statistical computing.
+\emph{R Foundation for Statistical Computing} , Vienna, Austria.
+\href{https://www.R-project.org/}{link}
+}
 \author{
 {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 }

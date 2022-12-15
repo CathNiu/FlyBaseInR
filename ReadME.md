@@ -76,7 +76,7 @@ ls("package:FlyBaseInR")
 3.  Visualize and compare expression data of a set of genes by
     embryogenesis or life cycle (See function *drawExpression*).
 
-4.  Download one of 10 type of sequences of selected genes for further
+4.  Download one of 9 types of sequences of selected genes for further
     experiment or analysis as a text file (See function
     *getAllSequences*).
 

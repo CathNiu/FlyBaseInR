@@ -64,6 +64,10 @@ drawExpression(expressionData = expressionData,
 }
 
 }
+\references{
+Plotly Technologies Inc. Collaborative data science. Montréal, QC, 2015.
+\href{https://plot.ly.}{link}
+}
 \author{
 {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 }

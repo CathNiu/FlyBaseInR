@@ -1,6 +1,6 @@
 # Purpose: This script is used for parse user input text file for other
 # functions in the package
-# Date: 2022-11-14
+# Date: 2022-12-14
 # Version: 0.1.0
 # Bugs and Issues:
 

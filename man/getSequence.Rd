@@ -35,6 +35,11 @@ A list of sequence/sequences
 INTERNAL FUNCTION: Get one sequence from FlyBase API using FlyBase ID and
 the sequence type specified in the SEQUENCETYPE global variable.
 }
+\references{
+Wickham H (2022). \emph{httr: Tools for Working with URLs and HTTP}.
+R package version 1.4.4,
+\href{https://CRAN.R-project.org/package=httr}{link}
+}
 \author{
 {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 }

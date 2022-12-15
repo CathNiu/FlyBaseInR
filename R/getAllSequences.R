@@ -11,7 +11,21 @@ SEQUENCETYPE <- c("FBgn", "FBtr", "FBpp", "FBtp", "exon", "intron",
 #' @param geneList the list of genes for sequence retrieval.
 #'
 #' @param seqType the type if sequence you want to retrieve, any one choice
-#'                from SEQUENCETYPE
+#'                from SEQUENCETYPE. The available types include: FBgn, FBtr,
+#'                FBpp, FBti, FBtp, exon,intron, five_prime_utr,
+#'                three_prime_utr, CDS. The sequences type that the
+#'                abbreviation represents are listed below.
+#'
+#' 1. FBgn: The sequence of the gene span.
+#' 2. FBtr: The sequence of transcripts that are typed as messenger RNAs (mRNA).
+#' 3. FBpp: The resulting protein sequence from protein coding transcripts.
+#' 4. FBtp: Transgenetic construct sequence.
+#' 5. exon: Exon sequence split into each exon.
+#' 6. intron: Translated intron sequence split into each intron.
+#' 7. five_prime_utr: The sequence of 5' untranslated regions.
+#' 8. three_prime_utr: The sequence of 3' untranslated regions.
+#' 9. CDS: The contiguous protein coding sequence which begins with, and
+#' includes, a start codon and ends with, and includes, a stop codon.
 #'
 #' @examples
 #' \dontrun{
@@ -78,6 +92,11 @@ getAllSequences <- function(geneList, seqType) {
 #' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 #'
 #' @importFrom httr GET content status_code
+#'
+#' @references
+#' Wickham H (2022). _httr: Tools for Working with URLs and HTTP_.
+#' R package version 1.4.4,
+#' \href{https://CRAN.R-project.org/package=httr}{link}
 #'
 getSequence <- function(seqType, flyID) {
 

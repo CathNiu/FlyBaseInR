@@ -29,6 +29,11 @@ FLYBASEEXP <- "https://api.flybase.org/api/v1.0/expression/proteome/"
 #'
 #' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 #'
+#' @references
+#' R Core Team (2022). R: A language and environment for statistical computing.
+#' \emph{R Foundation for Statistical Computing} , Vienna, Austria.
+#' \href{https://www.R-project.org/}{link}
+#'
 
 getAllExpression <- function(geneList) {
 
@@ -58,12 +63,16 @@ getAllExpression <- function(geneList) {
 #'
 #' @param flyID A FlyBase ID that FlyBase uses to identify gene
 #'
-#' @return A list of expression LFQ intensity and corresponsing developmental
+#' @return A list of expression LFQ intensity and corresponding developmental
 #' stages of the gene(by flyID).
 #'
 #' @author {Huilin Niu, \email{ huilin.niu@mail.utoronto.ca}}
 #'
 #' @importFrom httr GET content status_code
+#'
+#' @references
+#' Wickham H (2022). _httr: Tools for Working with URLs and HTTP_.
+#' R package version 1.4.4, \href{https://CRAN.R-project.org/package=httr}{link}
 #'
 getExpression <- function(flyID) {
 
@@ -118,6 +127,11 @@ getExpression <- function(flyID) {
 #' @author {Huilin Niu, \email{ huilin.niu@mail.utoronto.ca}}
 #'
 #' @import dplyr
+#'
+#' @references
+#' Wickham H, François R, Henry L, Müller K (2022).
+#' _dplyr: A Grammar of Data Manipulation_. R package version 1.0.10,
+#' \href{https://CRAN.R-project.org/package=dplyr}{link}
 #'
 getExpressiondf <- function(geneList) {
   dfList <- vector(mode = "list", length = length(geneList))

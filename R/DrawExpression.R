@@ -53,6 +53,10 @@
 #' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
 #'
 #' @importFrom plotly plot_ly layout
+#'
+#' @references
+#' Plotly Technologies Inc. Collaborative data science. Montréal, QC, 2015.
+#' \href{https://plot.ly.}{link}
 
 drawExpression <- function(expressionData, typeGraph, graphTitle) {
 
@@ -110,6 +114,11 @@ drawExpression <- function(expressionData, typeGraph, graphTitle) {
 #' @importFrom stats na.omit
 #'
 #' @author {Huilin Niu, \email{huilin.niu@mail.utoronto.ca}}
+#'
+#' @references
+#' R Core Team (2022). R: A language and environment for statistical computing.
+#' \emph{R Foundation for Statistical Computing} , Vienna, Austria.
+#' \href{https://www.R-project.org/}{link}
 #'
 sortHeatMapData <- function(expressionData, typeData) {
 

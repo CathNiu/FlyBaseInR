@@ -12,12 +12,16 @@ getExpression(flyID)
 \item{flyID}{A FlyBase ID that FlyBase uses to identify gene}
 }
 \value{
-A list of expression LFQ intensity and corresponsing developmental
+A list of expression LFQ intensity and corresponding developmental
 stages of the gene(by flyID).
 }
 \description{
 This function Will use FlyBase internal API function to retrieve feature
 using specified FlyBase gene ID.
+}
+\references{
+Wickham H (2022). \emph{httr: Tools for Working with URLs and HTTP}.
+R package version 1.4.4, \href{https://CRAN.R-project.org/package=httr}{link}
 }
 \author{
 {Huilin Niu, \email{ huilin.niu@mail.utoronto.ca}}

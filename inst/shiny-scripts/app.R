@@ -1,3 +1,8 @@
+# Purpose: This script is used for creating Shiny App
+# Date: 2022-12-14
+# Version: 0.1.0
+# Bugs and Issues:
+
 # This app is adapted from
 # Grolemund, G. (2015). Learn Shiny - Wriiten Tutorials.
 # URL:https://shiny.rstudio.com/tutorial/written-tutorial/lesson1/
@@ -18,28 +23,31 @@ ui <- fluidPage(
       # Description on file uploads
       tags$div(
         "Please upload a text file end with .txt. Each line should contain one
-        FlyBase Gene ID(ex. FBgn0036925). Please see package vingette for the
+        FlyBase Gene ID(ex. FBgn0036925). Please see package vignettes for the
         location of testing data.",
         tags$br(),
       ),
 
       br(),
 
+      # Upload file
       fileInput(inputId = "inputGeneFile",
                 label = "Choose a text file.",
                 accept = c("text/plain")
                 ),
 
 
-
+      # Download expression
       uiOutput(outputId = "downloadE"),
 
       hr(),
 
+      # Add graph title
       textInput(inputId = "graphTitle",
                 label = "Graph Title"
       ),
 
+      # Draw expression button
       actionButton(inputId = "drawExpression",
                    label = "Draw Expression",
                    class = "btn-success"
@@ -73,11 +81,14 @@ server <- function(input, output) {
   geneInput <- NULL
   inputExpressionData <- NULL
 
+  # Observe user have uploaded a file
   observeEvent(input$inputGeneFile, {
     userGeneInput <- input$inputGeneFile
     showNotification(ui = "Please wait while processing data!",
                      duration = 10,
                      type = "message")
+
+    # tryCatch errors for parseFile
     tryCatch({
       geneInput <- FlyBaseInR::parseFile(geneFile = userGeneInput$datapath)
     }, error = function(errors) {
@@ -86,6 +97,7 @@ server <- function(input, output) {
                        type = "error")
     })
 
+    # tryCatch errors and messages for getAllExpression
     if (!is.null(userGeneInput)) {
       tryCatch({
         inputExpressionData <- FlyBaseInR::getAllExpression(geneList = geneInput)
@@ -100,15 +112,17 @@ server <- function(input, output) {
                          duration = 3)
       })
     } else {
-      ;
+      ; # Do Nothing
     }
 
+    # make download button appear after process data
     output$downloadE <- renderUI({
       downloadButton(inputId = "downloadExpression",
                      outputId = "expressionFile",
                      label = "Download Expression Data")
     })
 
+    # generate output file for download expression
     output$expressionFile <- downloadHandler(
       filename = function() {
         paste0("Expression_", Sys.Date(), ".txt")
@@ -123,13 +137,18 @@ server <- function(input, output) {
     output$sequenceDownloader <- renderUI({
       sidebarLayout(
         sidebarPanel(
+          # make download button appear after process data
           downloadButton(inputId = "downloadSeqeunces",
                          label = "Download Sequences",
                          outputId = "sequenceFile")
         ),
         mainPanel(
+
+          # generate column for split layout
           column(
             width = 12,
+
+            # split view for select Input and checkbox input
             splitLayout(cellWidths = c("50%", "50%"),
                         selectInput(inputId = "seqType",
                                     label =
@@ -153,6 +172,7 @@ server <- function(input, output) {
       )
     })
 
+    # Generate download sequence
     output$sequenceFile <- downloadHandler(
       filename = function() {
         paste0(input$seqType, "_Sequence_", Sys.Date(), ".txt")
@@ -171,10 +191,15 @@ server <- function(input, output) {
       contentType = "txt"
     )
 
+    # observe clicking on draw expression button
     observeEvent(input$drawExpression, {
+
+      # output embruogenesis plot and check
       output$Eplot <- plotly::renderPlotly({
         showNotification(ui = "Generating graph now....",
                          duration = 3)
+
+        # validate before render plot
         validate(
           need(expr = input$graphTitle,
                message = "Please enter a graph title before drawing!"),
@@ -185,12 +210,13 @@ server <- function(input, output) {
              your file!")
         )
 
+        #output embryogenesis plot
         generatePlot(expression = inputExpressionData,
                      plotType = "Embryogenesis",
                      plotTitle = input$graphTitle)
       })
 
-
+      # output LifeCycle plot
       output$Lplot <- plotly::renderPlotly({
         generatePlot(expression = inputExpressionData,
                      plotType = "LifeCycle",
@@ -200,6 +226,7 @@ server <- function(input, output) {
   })
 }
 
+# Internal helper function for generate plot
 generatePlot <- function(expression, plotType, plotTitle) {
   FlyBaseInR::drawExpression(expressionData = expression,
                              typeGraph = plotType,
@@ -210,3 +237,6 @@ generatePlot <- function(expression, plotType, plotTitle) {
 # Run Shiny App
 shinyApp(ui = ui,
          server = server)
+
+
+# [END]

@@ -150,7 +150,7 @@ embryogenesis/developmental stage in life cycle, y: gene ID, and z: the intensit
 
 The color scale on the right shows the expression level, the darker the color, the higher the expression level. If you take a closer look at the left image, you can conclude that expression level of FBgn0261238 increase along embryogesis, indicating it is upregulated at later embryogenesis. Expression level of FBgn0011270 is constantly high, indicating it could be an important protein involved in development. If you take a look at the life cycle expression on the right, you can conclude that FBgn0039257, FBgn0053333, FBgn0030206 have high expressions at pupal stages, indicating they might be involved in the same biological process or upregulated by the same regulatory mechanism. Also, FBgn0261238, FBgn0019637, FBgn0035227, FBgn0267977 might be involved in embryogenesis together. These information could be useful to explore in experiments to investigate their function. 
 
-Finally, after identified the genes of interest, you can put the genes into a list, and use *getAllSequences* function to retrieve one of ten types of seqeunces you want from FlyBase. To see all available input of *seqType*, type help(getAllSequences) to see a full list of available sequence types. The output will be in a text file ends with "Sequences.txt" in your working directorry.
+Finally, after identified the genes of interest, you can put the genes into a list, and use *getAllSequences* function to retrieve one of 9 types of seqeunces you want from FlyBase. To see all available input of *seqType*, type help(getAllSequences) to see a full list of available sequence types. The output will be in a text file ends with "Sequences.txt" in your working directorry.
 
 ``` r
 

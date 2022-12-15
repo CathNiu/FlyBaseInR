@@ -18,6 +18,11 @@ expression table
 INTERNAL FUNCTION: Get a expression data for a list of genes
 for expression analysis.
 }
+\references{
+Wickham H, François R, Henry L, Müller K (2022).
+\emph{dplyr: A Grammar of Data Manipulation}. R package version 1.0.10,
+\href{https://CRAN.R-project.org/package=dplyr}{link}
+}
 \author{
 {Huilin Niu, \email{ huilin.niu@mail.utoronto.ca}}
 }
