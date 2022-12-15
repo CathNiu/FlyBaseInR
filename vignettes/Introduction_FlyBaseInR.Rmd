@@ -1,5 +1,5 @@
 ---
-title: "Introduction_FlyBaseInR"
+title: "A Tour of FlyBaseInR"
 author: "Huilin Niu"
 date: "`r format(Sys.time(), '%d %b %Y')`"
 output: 
@@ -7,7 +7,7 @@ output:
     toc: true
     number_sections: false
 vignette: >
-  %\VignetteIndexEntry{A tour of TestingPackage}
+  %\VignetteIndexEntry{A Tour of FlyBaseInR}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
 editor_options: 
@@ -97,8 +97,8 @@ After running, view *yourGeneList* should produce an identical list as
 *geneListExample* when you run *parseFile* on "geneListExample.txt":
 
 ``` r
-View(yourGeneList)
-View(geneListExample)
+yourGeneList
+geneListExample
 ```
 
 Next, we will extract expression from FlyBase using *getAllExpression*
@@ -133,18 +133,18 @@ would like to generate(You can choose from "Embryogenesis" or
 ``` r
 # To draw the embryogenesis expression data at each time point in the first 20 hours
 FlyBaseInR::drawExpression(expressionData = yourExpressionData,
-                           typeData = "Embryogenesis", 
+                           typeGraph = "Embryogenesis", 
                            graphTitle = "Gene Expression Heatmap Example")
 
 # To draw the life cycle expression data at each developmental stages
 FlyBaseInR::drawExpression(expressionData = yourExpressionData,
-                           typeData = "LifeCycle", 
+                           typeGraph = "LifeCycle", 
                            graphTitle = "Gene Expression Heatmap Example")                         
 ```
 
 Now, you should see a heatmap in the view panel in your R studio. You
-can hover over the unit cell to see the gene id, the time point in
-embryogenesis/developmental stage in life cycle, and the intensity of expression after log2 transformation. Please see below for the examples(left: embryogenesis expression, right: life cycle expression). 
+can hover over the unit cell to see x: the time point in
+embryogenesis/developmental stage in life cycle, y: gene ID, and z: the intensity of expression after log2 transformation. Please see below for the examples(left: embryogenesis expression, right: life cycle expression). 
 
 <div style="text-align:center"><img src="drawExpressionExample.png" alt="drawExpressionExample" width="700"/>
 
