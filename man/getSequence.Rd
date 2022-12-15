@@ -16,7 +16,6 @@ abbreviation represents are listed below.
 \item FBgn: The sequence of the gene span.
 \item FBtr: The sequence of transcripts that are typed as messenger RNAs (mRNA).
 \item FBpp: The resulting protein sequence from protein coding transcripts.
-\item FBti: Insersion sequence.
 \item FBtp: Transgenetic construct sequence.
 \item exon: Exon sequence split into each exon.
 \item intron: Translated intron sequence split into each intron.

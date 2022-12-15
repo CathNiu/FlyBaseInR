@@ -134,7 +134,7 @@ server <- function(input, output) {
                         selectInput(inputId = "seqType",
                                     label =
                                       "Select a seqeunce type to download",
-                                    choices = c("FBgn", "FBtr", "FBpp", "FBti",
+                                    choices = c("FBgn", "FBtr", "FBpp",
                                                 "FBtp", "exon", "intron",
                                                 "five_prime_utr",
                                                 "three_prime_utr", "CDS"),
@@ -202,7 +202,7 @@ server <- function(input, output) {
 
 generatePlot <- function(expression, plotType, plotTitle) {
   FlyBaseInR::drawExpression(expressionData = expression,
-                             typeData = plotType,
+                             typeGraph = plotType,
                              graphTitle = plotTitle)
 
 }

@@ -2,7 +2,7 @@
 # Global Variable accessing the FlyBase API Drosophila Melanogaster sequences
 FLYBASESEQ <- "https://api.flybase.org/api/v1.0/sequence/id/"
 # Global Variable that listing the sequences types available for retrieval.
-SEQUENCETYPE <- c("FBgn", "FBtr", "FBpp", "FBti", "FBtp", "exon", "intron",
+SEQUENCETYPE <- c("FBgn", "FBtr", "FBpp", "FBtp", "exon", "intron",
                   "five_prime_utr", "three_prime_utr", "CDS")
 
 #' Generate a text file containing all sequences for the FlyBase ids from user
@@ -62,13 +62,12 @@ getAllSequences <- function(geneList, seqType) {
 #' 1. FBgn: The sequence of the gene span.
 #' 2. FBtr: The sequence of transcripts that are typed as messenger RNAs (mRNA).
 #' 3. FBpp: The resulting protein sequence from protein coding transcripts.
-#' 4. FBti: Insersion sequence.
-#' 5. FBtp: Transgenetic construct sequence.
-#' 6. exon: Exon sequence split into each exon.
-#' 7. intron: Translated intron sequence split into each intron.
-#' 8. five_prime_utr: The sequence of 5' untranslated regions.
-#' 9. three_prime_utr: The sequence of 3' untranslated regions.
-#' 10. CDS: The contiguous protein coding sequence which begins with, and
+#' 4. FBtp: Transgenetic construct sequence.
+#' 5. exon: Exon sequence split into each exon.
+#' 6. intron: Translated intron sequence split into each intron.
+#' 7. five_prime_utr: The sequence of 5' untranslated regions.
+#' 8. three_prime_utr: The sequence of 3' untranslated regions.
+#' 9. CDS: The contiguous protein coding sequence which begins with, and
 #' includes, a start codon and ends with, and includes, a stop codon.
 #'
 #' @param flyID A FlyBase ID that FlyBase uses to identify gene, start with

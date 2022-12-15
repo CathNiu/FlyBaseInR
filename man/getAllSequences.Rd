@@ -11,7 +11,22 @@ getAllSequences(geneList, seqType)
 \item{geneList}{the list of genes for sequence retrieval.}
 
 \item{seqType}{the type if sequence you want to retrieve, any one choice
-from SEQUENCETYPE}
+from SEQUENCETYPE. The available types include: FBgn, FBtr,
+FBpp, FBti, FBtp, exon,intron, five_prime_utr,
+three_prime_utr, CDS. The sequences type that the
+abbreviation represents are listed below.
+\enumerate{
+\item FBgn: The sequence of the gene span.
+\item FBtr: The sequence of transcripts that are typed as messenger RNAs (mRNA).
+\item FBpp: The resulting protein sequence from protein coding transcripts.
+\item FBtp: Transgenetic construct sequence.
+\item exon: Exon sequence split into each exon.
+\item intron: Translated intron sequence split into each intron.
+\item five_prime_utr: The sequence of 5' untranslated regions.
+\item three_prime_utr: The sequence of 3' untranslated regions.
+\item CDS: The contiguous protein coding sequence which begins with, and
+includes, a start codon and ends with, and includes, a stop codon.
+}}
 }
 \description{
 Generate a text file containing all sequences for the FlyBase ids from user
